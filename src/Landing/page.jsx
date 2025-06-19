@@ -7,10 +7,7 @@ const LandingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsVisible(true), 100);
-    return () => {
-      clearTimeout(timeout);
-    };
+    setIsVisible(true);
   }, []);
 
   return (

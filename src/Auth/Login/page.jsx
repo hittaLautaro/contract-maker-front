@@ -9,9 +9,12 @@ const LoginPage = () => {
   return (
     <div className="bg-white min-h-screen">
       <div className="flex flex-col justify-center items-center min-h-[calc(100vh-80px)] px-4">
-        <h1 className="text-4xl pb-1 text-zinc-800 font-bold font-sans rounded transition-colors duration-300 underline decoration-amber-400 mb-12">
+        <NavLink
+          to={"/"}
+          className="text-4xl pb-1 text-zinc-800 font-bold font-sans rounded transition-colors duration-300 underline decoration-amber-400 mb-12"
+        >
           Firmalo!
-        </h1>
+        </NavLink>
 
         <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md border-slate-300 border">
           <h2 className="text-2xl font-bold text-center text-slate-800 mb-6">
