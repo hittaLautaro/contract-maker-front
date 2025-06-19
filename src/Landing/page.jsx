@@ -19,10 +19,8 @@ const LandingPage = () => {
 
       <Hero id="hero" isVisible={isVisible} />
 
-      <footer className="border-t border-zinc-700/50 py-8 text-center  text-gray-500">
-        <div className="text-xs">
-          © 2025 Lautaro Hitta - My Contract Maker Mock
-        </div>
+      <footer className="border-t border-zinc-700/50 py-5 text-center  text-gray-500">
+        <div className="text-xs">© 2025 Lautaro Hitta - Firmalo!</div>
       </footer>
     </div>
   );

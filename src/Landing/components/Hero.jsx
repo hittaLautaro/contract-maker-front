@@ -1,11 +1,12 @@
 import React from "react";
 import { ChevronDown } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const Hero = ({ isVisible }) => {
   return (
-    <section className="min-h-[calc(90vh)] bg-white flex items-center justify-center">
+    <section className="min-h-[calc(93vh)] bg-white flex items-center justify-center">
       <div
-        className={`transition-all justify-items-center duration-1000 mb-10${
+        className={`transition-all justify-items-center duration-1000 mb-10 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
@@ -18,18 +19,13 @@ const Hero = ({ isVisible }) => {
         <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-zinc-700 text-center font-normal mt-5">
           Crea, firma y comparte documentos en minutos, sin complicaciones.
         </p>
-        <button
-          className="
-    bg-slate-800 text-white
-    text-xl px-6 py-4 rounded-xl mt-10
-    font-semibold font-mono
-    hover:bg-amber-400 hover:text-black border border-slate-800 hover:border-zinc-900
-    transition-color duration-500
-  "
+        <NavLink
+          to={"/auth/signup"}
+          className="block bg-slate-800 text-white text-xl mt-10 px-6 py-4 rounded-xl font-semibold font-mono border border-slate-800 hover:bg-amber-400 hover:text-black hover:border-zinc-900 transition-colors duration-500"
         >
           {" "}
           Comienza ahora!
-        </button>
+        </NavLink>
       </div>
     </section>
   );
