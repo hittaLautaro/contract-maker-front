@@ -13,12 +13,12 @@ const LoginPage = () => {
           to={"/"}
           className="text-4xl pb-1 text-zinc-800 font-bold font-sans rounded transition-colors duration-300 underline decoration-amber-400 mb-12"
         >
-          Firmalo!
+          PerfCV
         </NavLink>
 
         <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md border-slate-300 border">
           <h2 className="text-2xl font-bold text-center text-slate-800 mb-6">
-            Iniciar sesión
+            Log in
           </h2>
 
           <button
@@ -47,13 +47,11 @@ const LoginPage = () => {
                 d="M272 107.7c39.9 0 75.7 13.7 103.8 40.6l77.8-77.8C399.9 24.9 341 0 272 0 166.3 0 72.9 59.5 27.5 150l90.8 70.9c21.7-64.9 82.2-113.2 153.7-113.2z"
               />
             </svg>
-            <span className="text-gray-700 font-medium">
-              Iniciar sesión con Google
-            </span>
+            <span className="text-gray-700 font-medium">Login with Google</span>
           </button>
 
           <div className="flex justify-center items-center mt-4 mb-4">
-            <span className="text-black">O</span>
+            <span className="text-black">OR</span>
           </div>
 
           <form>
@@ -78,7 +76,7 @@ const LoginPage = () => {
                 htmlFor="password"
                 className="block text-sm font-semibold text-slate-700 mb-1"
               >
-                Contraseña
+                Password
               </label>
               <input
                 id="password"
@@ -93,16 +91,16 @@ const LoginPage = () => {
               type="submit"
               className="w-full bg-slate-800 text-white py-2 rounded-lg font-semibold hover:bg-amber-400 hover:text-black transition-all duration-300"
             >
-              Ingresar
+              Log in
             </button>
 
             <p className="text-sm text-center text-slate-600 mt-4">
-              ¿No tienes cuenta?{" "}
+              Don't have an account?{" "}
               <NavLink
                 to="/auth/signup"
                 className="text-amber-600 font-semibold hover:underline"
               >
-                Registrate
+                Sign up
               </NavLink>
             </p>
           </form>

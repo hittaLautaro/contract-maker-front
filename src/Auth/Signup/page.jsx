@@ -13,12 +13,12 @@ const SignupPage = () => {
           to={"/"}
           className="text-4xl pb-1 text-zinc-800 font-bold font-sans rounded transition-colors duration-300 underline decoration-amber-400 mb-12"
         >
-          Firmalo!
+          PerfCV
         </NavLink>
 
         <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md border-slate-300 border">
           <h2 className="text-2xl font-bold text-center text-slate-800 mb-6">
-            Crear cuenta
+            Create account
           </h2>
 
           <button
@@ -48,12 +48,12 @@ const SignupPage = () => {
               />
             </svg>
             <span className="text-gray-700 font-medium">
-              Registrarse con Google
+              Sign up with Google
             </span>
           </button>
 
           <div className="flex justify-center items-center mt-4 mb-4">
-            <span className="text-black">O</span>
+            <span className="text-black">OR</span>
           </div>
 
           <form>
@@ -78,7 +78,7 @@ const SignupPage = () => {
                 htmlFor="password"
                 className="block text-sm font-semibold text-slate-700 mb-1"
               >
-                Contraseña
+                Password
               </label>
               <input
                 id="password"
@@ -94,7 +94,7 @@ const SignupPage = () => {
                 htmlFor="confirmPassword"
                 className="block text-sm font-semibold text-slate-700 mb-1"
               >
-                Confirmar contraseña
+                Confirm Password
               </label>
               <input
                 id="confirmPassword"
@@ -109,16 +109,16 @@ const SignupPage = () => {
               type="submit"
               className="w-full bg-slate-800 text-white py-2 rounded-lg font-semibold hover:bg-amber-400 hover:text-black transition-all duration-300"
             >
-              Crear cuenta
+              Create account
             </button>
 
             <p className="text-sm text-center text-slate-600 mt-4">
-              ¿Ya tienes cuenta?{" "}
+              Already have an account?{" "}
               <NavLink
                 to="/auth/login"
                 className="text-amber-600 font-semibold hover:underline"
               >
-                Inicia sesión
+                Log in
               </NavLink>
             </p>
           </form>

@@ -1,5 +1,3 @@
-import React from "react";
-import PdfDropdown from "./PdfDropdown";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
@@ -11,16 +9,22 @@ const Header = () => {
             onClick={() => scrollToSection("hero")}
             className="text-4xl pb-1 text-zinc-800 font-bold font-sans rounded transition-colors duration-300 underline decoration-white hover:decoration-amber-400"
           >
-            Firmalo!
+            PerfCV
           </button>
         </div>
 
-        <div className="flex space-x-8 font-normal text-black pb-1">
+        <div className="flex space-x-3 pb-1">
           <NavLink
             to={"/auth/login"}
-            className=" duration-150 border border-zinc-900 bg-amber-300 px-4 py-2 rounded-md hover:scale-105 transition-all hover:bg-amber-400"
+            className="duration-150 text-md border border-slate-800 bg-slate-800 px-5 py-2 rounded-xl font-medium font-sans text-white hover:bg-slate-900"
           >
-            Iniciar sesión
+            Log in
+          </NavLink>
+          <NavLink
+            to={"/auth/signup"}
+            className="duration-150 text-md border border-zinc-900 bg-amber-300 px-5 py-2 rounded-xl font-medium font-sans text-black hover:bg-amber-400"
+          >
+            Signup
           </NavLink>
         </div>
       </div>

@@ -17,7 +17,7 @@ const LandingPage = () => {
       <Hero id="hero" isVisible={isVisible} />
 
       <footer className="border-t border-zinc-700/50 py-5 text-center  text-gray-500">
-        <div className="text-xs">© 2025 Lautaro Hitta - Firmalo!</div>
+        <div className="text-xs">© 2025 Lautaro Hitta - PerfCV!</div>
       </footer>
     </div>
   );

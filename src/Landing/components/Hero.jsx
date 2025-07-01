@@ -11,20 +11,19 @@ const Hero = ({ isVisible }) => {
         }`}
       >
         <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-center font-sans text-zinc-800 font-extrabold rounded text-balance">
-          <span className="underline decoration-amber-400">Firma</span> y
-          gestiona
-          <br />
-          tus documentos facilmente.
+          Create the{" "}
+          <span className="underline decoration-amber-400">Perfect CV</span> to
+          land a job
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-zinc-700 text-center font-normal mt-5">
-          Crea, firma y comparte documentos en minutos, sin complicaciones.
+          Use our templates to build a ATS proof resume
         </p>
         <NavLink
-          to={"/auth/signup"}
+          to={"/dashboard"}
           className="block bg-slate-800 text-white text-xl mt-10 px-6 py-4 rounded-xl font-semibold font-mono border border-slate-800 hover:bg-amber-400 hover:text-black hover:border-zinc-900 transition-colors duration-500"
         >
           {" "}
-          Comienza ahora!
+          Start now!
         </NavLink>
       </div>
     </section>
