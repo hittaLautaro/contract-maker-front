@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className="fixed top-0 w-full bg-white backdrop-blur-md z-50 ">
-      <div className="w-full px-10 py-4 flex justify-between items-center mt-3">
+    <nav className="sticky top-0 w-full bg-white backdrop-blur-md z-50 border-b-2 border-zinc-800">
+      <div className="w-full px-10 py-4 flex justify-between items-center">
         <div className="flex space-x-8 items-center">
           <h1 className="text-4xl  text-zinc-800 font-bold font-sans rounded transition-colors duration-300 underline decoration-white hover:decoration-amber-400">
             PerfCV

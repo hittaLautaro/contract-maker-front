@@ -4,8 +4,6 @@ import TagInput from "./TagInput";
 import { useMutation } from "@tanstack/react-query";
 
 const generatePdf = async (formData) => {
-  console.log(formData);
-
   const res = await fetch("http://localhost:8080/api/cv/generate-pdf", {
     method: "POST",
     headers: {

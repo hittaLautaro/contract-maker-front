@@ -8,7 +8,7 @@ const CvFormPage = () => {
   const templateName = searchParams.get("template");
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen">
       <Header />
       <CvForm templateId={id} templateName={templateName} />
     </div>

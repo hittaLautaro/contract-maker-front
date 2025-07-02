@@ -3,7 +3,7 @@ import TemplateSelector from "./TemplateSelector";
 
 const TemplatesPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen">
       <Header />
       <TemplateSelector />
     </div>
