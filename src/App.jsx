@@ -1,8 +1,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LoginPage from "./Auth/Login/page.jsx";
 import SignupPage from "./Auth/Signup/page.jsx";
-import DashboardPage from "./Dashboard/page.jsx";
 import LandingPage from "./Landing/page.jsx";
+import TemplatesPage from "./Templates/page.jsx";
+import CvFormPage from "./CvForm/page.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const queryClient = new QueryClient({
@@ -20,7 +21,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/templates" element={<TemplatesPage />} />
+          <Route path="/templates/:id/fill" element={<CvFormPage />} />
           <Route path="/auth/login" element={<LoginPage />} />
           <Route path="/auth/signup" element={<SignupPage />} />
         </Routes>

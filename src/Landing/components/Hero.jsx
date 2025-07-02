@@ -19,7 +19,7 @@ const Hero = ({ isVisible }) => {
           Use our templates to build a ATS proof resume
         </p>
         <NavLink
-          to={"/dashboard"}
+          to={"/templates"}
           className="block bg-slate-800 text-white text-xl mt-10 px-6 py-4 rounded-xl font-semibold font-mono border border-slate-800 hover:bg-amber-400 hover:text-black hover:border-zinc-900 transition-colors duration-500"
         >
           {" "}
