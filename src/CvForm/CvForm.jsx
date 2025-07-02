@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Plus, Trash2, X } from "lucide-react";
 import TagInput from "./TagInput";
 import { useMutation } from "@tanstack/react-query";
+import { RiArrowGoBackFill } from "react-icons/ri";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const generatePdf = async (formData) => {
   const res = await fetch("http://localhost:8080/api/cv/generate-pdf", {
@@ -23,6 +25,7 @@ const generatePdf = async (formData) => {
 };
 
 const CvForm = ({ templateId = 1, templateName = "Professional Template" }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     selectedTemplateId: templateId,
     fullName: "",
@@ -155,10 +158,16 @@ const CvForm = ({ templateId = 1, templateName = "Professional Template" }) => {
 
   return (
     <div className="max-w-6xl w-full mx-auto px-4 mt-5 pb-10">
-      <h2 className="text-4xl font-bold text-gray-800 my-10 text-">
-        Fill the{" "}
-        <span className="underline decoration-amber-400">template</span>
-      </h2>
+      <div className="flex flex-row items-center gap-4 my-10">
+        <NavLink to={"/templates"}>
+          <RiArrowGoBackFill size={30} className="text-gray-800" />
+        </NavLink>
+
+        <h2 className="text-4xl font-bold text-gray-800">
+          Fill the{" "}
+          <span className="underline decoration-amber-400">template</span>
+        </h2>
+      </div>
 
       <div className="space-y-5">
         {/* About You */}
