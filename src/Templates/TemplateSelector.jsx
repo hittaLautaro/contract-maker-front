@@ -58,7 +58,7 @@ const TemplateSelector = () => {
     <div className="max-w-6xl w-full mx-auto px-4 mt-5 pb-10">
       <h2 className="text-4xl font-bold text-gray-800 my-10 text-">
         Choose a{" "}
-        <span className="underline decoration-amber-400">Template</span>
+        <span className="underline decoration-amber-400">template</span>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 pb-10">
         {templates.map((template) => (

@@ -15,7 +15,7 @@ const Header = () => {
             to={"/auth/login"}
             className=" duration-150 border border-zinc-900 bg-amber-300 px-3 py-2 rounded-md hover:scale-105 transition-all hover:bg-amber-400 text-sm"
           >
-            Cerrar Sesion
+            Log out
           </NavLink>
         </div>
       </div>

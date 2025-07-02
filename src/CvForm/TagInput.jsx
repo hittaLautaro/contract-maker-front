@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TagInput = ({ tags, onAdd, onRemove }) => {
+const TagInput = ({ tags, onAdd, onRemove, customPlaceHolder }) => {
   const [input, setInput] = useState("");
 
   const handleKeyDown = (e) => {
@@ -37,7 +37,7 @@ const TagInput = ({ tags, onAdd, onRemove }) => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Type a technology and press Enter"
+        placeholder={customPlaceHolder}
         className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       />
     </div>
