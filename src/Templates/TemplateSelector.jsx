@@ -4,33 +4,17 @@ import { useNavigate } from "react-router-dom";
 const TemplateSelector = () => {
   const navigate = useNavigate();
 
-  // const {
-  //   data: templates = [],
-  //   isLoading,
-  //   error,
-  // } = useQuery({
-  //   queryKey: ["templates"],
-  //   queryFn: () =>
-  //     fetch("http://localhost:8080/api/templates", { method: "GET" }).then(
-  //       (res) => res.json()
-  //     ),
-  // });
-
-  const isLoading = false;
-  const error = null;
-
-  const templates = [
-    { id: 1, displayName: "Professional Template" },
-    { id: 2, displayName: "Creative Portfolio" },
-    { id: 3, displayName: "Minimalist Design" },
-    { id: 4, displayName: "Modern Resume" },
-    { id: 5, displayName: "Elegant CV" },
-    { id: 6, displayName: "Technical Profile" },
-    { id: 7, displayName: "Startup Style" },
-    { id: 8, displayName: "Classic Layout" },
-    { id: 9, displayName: "Freelancer Template" },
-    { id: 10, displayName: "Compact Resume" },
-  ];
+  const {
+    data: templates = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["templates"],
+    queryFn: () =>
+      fetch("http://localhost:8080/api/templates", { method: "GET" }).then(
+        (res) => res.json()
+      ),
+  });
 
   const handleTemplateSelect = (template) => {
     navigate(`/templates/${template.id}/fill?template=${template.displayName}`);
