@@ -1,26 +1,6 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 
-const generatePdf = async (formData) => {
-  const res = await fetch("http://localhost:8080/api/cv/generate-pdf", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  });
-
-  console.log(res);
-
-  if (!res.ok) throw new Error("Failed to generate PDF");
-
-  const blob = await res.blob();
-  const url = URL.createObjectURL(blob);
-  window.open(url);
-
-  return blob;
-};
-
 export const useCvForm = (templateId = 1) => {
   const [formData, setFormData] = useState({
     selectedTemplateId: templateId,
@@ -37,6 +17,24 @@ export const useCvForm = (templateId = 1) => {
     educationList: [],
     projects: [],
   });
+
+  const [pdfUrl, setPdfUrl] = useState(null);
+
+  const generatePdf = async (formData) => {
+    const res = await fetch("http://localhost:8080/api/cv/generate-pdf", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (!res.ok) throw new Error("Failed to generate PDF");
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    setPdfUrl(url);
+
+    return blob;
+  };
 
   const mutation = useMutation({
     mutationFn: generatePdf,
@@ -158,11 +156,12 @@ export const useCvForm = (templateId = 1) => {
   };
 
   const handleSubmit = () => {
-    mutation.mutate(formData);
+    return mutation.mutateAsync(formData);
   };
 
   return {
     formData,
+    pdfUrl,
     updateField,
     addLanguage,
     removeLanguage,
