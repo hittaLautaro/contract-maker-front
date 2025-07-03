@@ -65,7 +65,7 @@ const TemplateSelector = () => {
           <div
             key={template.id}
             onClick={() => handleTemplateSelect(template)}
-            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer p-3 border-2 border-transparent border-gray-800 hover:border-amber-400"
+            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer p-3 border-2 border-gray-800 hover:border-amber-400"
           >
             <div className="bg-black h-80 w-full"></div>
             <p className="text-md font-bold text-gray-800 mt-1">
