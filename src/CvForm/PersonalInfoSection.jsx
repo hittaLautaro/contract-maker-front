@@ -85,28 +85,30 @@ const PersonalInfoSection = ({
           />
         </div>
       </div>
-      <div className="mt-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Languages
-        </label>
-        <TagInput
-          tags={formData.languages}
-          customPlaceHolder="e.g. English, Spanish..."
-          onAdd={addLanguage}
-          onRemove={removeLanguage}
-        />
-      </div>
-      <div className="mt-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Summary
-        </label>
-        <textarea
-          value={formData.summary}
-          placeholder="e.g. I'm a Software Engineer specialized in..."
-          onChange={(e) => updateField("summary", e.target.value)}
-          rows={3}
-          className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        />
+      <div className="grid grid-cols-3 gap-2">
+        <div className="mt-4 col-span-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Languages
+          </label>
+          <TagInput
+            tags={formData.languages}
+            customPlaceHolder="e.g. English, Spanish..."
+            onAdd={addLanguage}
+            onRemove={removeLanguage}
+          />
+        </div>
+        <div className="mt-4 col-span-2">
+          <label className="block text-sm font-medium text-gray-700 mb-4">
+            Summary
+          </label>
+          <textarea
+            value={formData.summary}
+            placeholder="e.g. I'm a Software Engineer specialized in..."
+            onChange={(e) => updateField("summary", e.target.value)}
+            rows={1}
+            className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
       </div>
     </section>
   );

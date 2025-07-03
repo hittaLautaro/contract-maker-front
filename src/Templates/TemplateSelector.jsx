@@ -16,6 +16,18 @@ const TemplateSelector = () => {
       ),
   });
 
+  // const templates = [
+  //   { id: 1, displayName: "Template 1" },
+  //   { id: 2, displayName: "Template 2" },
+  //   { id: 3, displayName: "Template 3" },
+  //   { id: 4, displayName: "Template 4" },
+  //   { id: 5, displayName: "Template 5" },
+  //   { id: 6, displayName: "Template 6" },
+  //   { id: 7, displayName: "Template 7" },
+  // ];
+  // const isLoading = false;
+  // const error = null;
+
   const handleTemplateSelect = (template) => {
     navigate(`/templates/${template.id}/fill?template=${template.displayName}`);
   };
@@ -44,7 +56,7 @@ const TemplateSelector = () => {
         Choose a{" "}
         <span className="underline decoration-amber-400">template</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 pb-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 pb-10">
         {templates.map((template) => (
           <div
             key={template.id}

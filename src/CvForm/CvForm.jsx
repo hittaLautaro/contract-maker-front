@@ -1,12 +1,31 @@
-// components/CvForm.js
+import { Document, Page } from "react-pdf";
+import { pdfjs } from "react-pdf";
+
+// Configure worker
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.mjs",
+  import.meta.url
+).toString();
+
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
+
 import { useCvForm } from "./hooks/useCvForm.js";
 import PersonalInfoSection from "./PersonalInfoSection.jsx";
 import ExperienceSection from "./ExperienceSection.jsx";
 import ProjectsSection from "./ProjectSection.jsx";
 import EducationSection from "./EducationSection.jsx";
 import { NavLink } from "react-router-dom";
-import { RiArrowGoBackFill } from "react-icons/ri";
+import {
+  RiArrowGoBackFill,
+  RiFilePdf2Fill,
+  RiFileWord2Fill,
+  RiWordpressFill,
+} from "react-icons/ri";
 import { useState, useEffect } from "react";
+import { FaFileWord, FaRegFileWord } from "react-icons/fa";
+import { SiSpringboot } from "react-icons/si";
+import { ImCross } from "react-icons/im";
 
 const CvForm = ({ templateId = 1 }) => {
   const {
@@ -36,6 +55,7 @@ const CvForm = ({ templateId = 1 }) => {
   // Local state to hold generated PDF URL and modal open state
   const [pdfUrl, setPdfUrl] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [numPages, setNumPages] = useState(null);
 
   useEffect(() => {
     return () => {
@@ -134,38 +154,60 @@ const CvForm = ({ templateId = 1 }) => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          onClick={closeModal}
-        >
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div
-            className="bg-white rounded-lg shadow-lg p-4 max-w-5xl max-h-[90vh] w-full overflow-auto relative"
+            className="bg-white border-2 border-zinc-800 rounded-lg shadow-lg p-4 max-w-5xl max-h-[90vh]  overflow-auto relative"
             onClick={(e) => e.stopPropagation()} // Prevent closing modal on inner click
           >
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
-              aria-label="Close modal"
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                closeModal();
+              }}
+              className="flex justify-end"
             >
-              ✕
-            </button>
+              <ImCross />
+            </a>
             {pdfUrl ? (
-              <iframe
-                src={pdfUrl}
-                title="CV PDF Preview"
-                width="100%"
-                height="600px"
-              />
+              <Document
+                file={pdfUrl}
+                onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+                className="pdf-document mt-2"
+              >
+                {Array.from(new Array(numPages), (_, i) => (
+                  <Page
+                    key={i + 1}
+                    pageNumber={i + 1}
+                    width={550} // Set fixed width
+                    scale={1.0} // Control zoom level
+                    renderAnnotationLayer={false}
+                    renderTextLayer={false}
+                    className="pdf-page border-2 border-zinc-800 max-w-40"
+                  />
+                ))}
+              </Document>
             ) : (
               <p>No preview available.</p>
             )}
-            <a
-              href={pdfUrl}
-              download="cv.pdf"
-              className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            >
-              Download PDF
-            </a>
+            <div className="flex space-x-2">
+              <a
+                href={pdfUrl}
+                download="cv.pdf"
+                className="mt-4 px-3 py-2 bg-sky-700 text-white font-semibold rounded hover:bg-sky-800 flex flex-row items-center gap-2"
+              >
+                <FaRegFileWord size={18} />
+                Download DOC
+              </a>
+              <a
+                href={pdfUrl}
+                download="cv.pdf"
+                className="mt-4 px-3 py-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 flex flex-row items-center gap-2"
+              >
+                <RiFilePdf2Fill size={18} />
+                Download PDF
+              </a>
+            </div>
           </div>
         </div>
       )}
