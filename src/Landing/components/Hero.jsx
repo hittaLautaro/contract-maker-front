@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 
 const Hero = ({ isVisible }) => {
   return (
-    <section className="min-h-[calc(93vh)] bg-white flex items-center justify-center">
+    <section className="min-h-[calc(90vh)] bg-white flex items-center justify-center">
       <div
-        className={`transition-all justify-items-center duration-1000 mb-10 ${
+        className={`transition-all justify-items-center duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >

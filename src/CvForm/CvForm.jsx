@@ -157,7 +157,7 @@ const CvForm = ({ templateId = 1 }) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div
             className="bg-white border-2 border-zinc-800 rounded-lg shadow-lg p-4 max-w-5xl max-h-[90vh]  overflow-auto relative"
-            onClick={(e) => e.stopPropagation()} // Prevent closing modal on inner click
+            onClick={(e) => e.stopPropagation()}
           >
             <a
               href="#"
@@ -179,8 +179,8 @@ const CvForm = ({ templateId = 1 }) => {
                   <Page
                     key={i + 1}
                     pageNumber={i + 1}
-                    width={550} // Set fixed width
-                    scale={1.0} // Control zoom level
+                    width={550}
+                    scale={1.0}
                     renderAnnotationLayer={false}
                     renderTextLayer={false}
                     className="pdf-page border-2 border-zinc-800 max-w-40"
