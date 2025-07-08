@@ -25,7 +25,24 @@ const useAuth = () => {
 
       const data = await response.json();
       localStorage.setItem("accessToken", data.accessToken);
-      setUser(data.user);
+
+      try {
+        const userResponse = await fetch("http://localhost:8080/api/auth/me", {
+          headers: {
+            Authorization: `Bearer ${data.accessToken}`,
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
+
+        if (userResponse.ok) {
+          const userData = await userResponse.json();
+          setUser(userData);
+        }
+      } catch (error) {
+        console.error("error fetching user:", error);
+      }
+
       navigate("/");
       return data;
     },
@@ -35,8 +52,9 @@ const useAuth = () => {
   const logout = useCallback(() => {
     localStorage.removeItem("accessToken");
     setUser(null);
+    console.log("logged out");
     navigate("/");
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -62,7 +80,9 @@ const useAuth = () => {
           localStorage.removeItem("accessToken");
           setUser(null);
         }
-      } catch {
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+        localStorage.removeItem("accessToken");
         setUser(null);
       } finally {
         setLoading(false);
@@ -71,6 +91,11 @@ const useAuth = () => {
 
     fetchUser();
   }, []);
+
+  useEffect(() => {
+    console.log("User state changed:", user);
+    console.log("Is authenticated:", !!user);
+  }, [user]);
 
   return { user, login, logout, isAuthenticated: !!user, loading };
 };

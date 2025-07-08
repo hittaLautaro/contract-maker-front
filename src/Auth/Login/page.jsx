@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import useAuth from "../../Auth/hooks/useAuth.js";
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext.jsx";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
