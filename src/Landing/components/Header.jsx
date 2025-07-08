@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className="fixed top-0 w-full bg-white backdrop-blur-md z-50 ">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center  mt-5">
+    <nav className="fixed top-0 w-full bg-white z-50 border-b-2 border-zinc-800">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center mt-2 ">
         <div className="flex space-x-8 items-center">
           <button
             onClick={() => scrollToSection("hero")}

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Hero = ({ isVisible }) => {
   return (
-    <section className="min-h-[calc(90vh)] bg-white flex items-center justify-center">
+    <section className="min-h-[calc(98vh)] bg-white flex items-center justify-center">
       <div
         className={`transition-all justify-items-center duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -19,7 +19,7 @@ const Hero = ({ isVisible }) => {
           Use our templates to build a ATS proof resume
         </p>
         <NavLink
-          to={"/templates"}
+          to={"/auth/signup"}
           className="block bg-slate-800 text-white text-xl mt-10 px-6 py-4 rounded-xl font-semibold font-mono border border-slate-800 hover:bg-amber-400 hover:text-black hover:border-zinc-900 transition-colors duration-500"
         >
           {" "}

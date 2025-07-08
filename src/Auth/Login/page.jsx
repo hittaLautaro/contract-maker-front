@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import useAuth from "../../Auth/hooks/useAuth.js";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleOAuth = () => {
     console.log("Google login");
+  };
+
+  const mutation = useMutation({
+    mutationFn: ({ email, password }) => login({ email, password }),
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    mutation.mutate({ email, password });
   };
 
   return (
@@ -23,7 +40,8 @@ const LoginPage = () => {
 
           <button
             onClick={handleOAuth}
-            className="flex items-center justify-center bg-white border border-slate-400 rounded-md w-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow duration-300"
+            disabled={true}
+            className="flex items-center justify-center cursor-not-allowed bg-gray-300 border border-slate-400 rounded-md w-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow duration-300 "
           >
             <svg
               className="w-6 h-6 mr-3"
@@ -54,7 +72,7 @@ const LoginPage = () => {
             <span className="text-black">OR</span>
           </div>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -65,6 +83,8 @@ const LoginPage = () => {
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 border border-slate-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 bg-white"
                 placeholder="ejemplo@email.com"
                 required
@@ -81,6 +101,8 @@ const LoginPage = () => {
               <input
                 id="password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-2 border border-slate-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 bg-white"
                 placeholder="••••••••"
                 required
@@ -90,9 +112,16 @@ const LoginPage = () => {
             <button
               type="submit"
               className="w-full bg-slate-800 text-white py-2 rounded-lg font-semibold hover:bg-amber-400 hover:text-black transition-all duration-300"
+              disabled={mutation.isLoading}
             >
-              Log in
+              {mutation.isLoading ? "Logging in..." : "Log in"}
             </button>
+
+            {mutation.isError && (
+              <p className="text-red-600 mt-3 text-center">
+                {mutation.error.message}
+              </p>
+            )}
 
             <p className="text-sm text-center text-slate-600 mt-4">
               Don't have an account?{" "}

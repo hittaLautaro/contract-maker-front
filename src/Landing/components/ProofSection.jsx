@@ -1,10 +1,7 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import imageBadAts from "../../assets/bad-ats-resume.jpg";
 import imageGoodAts from "../../assets/good-ats-resume.webp";
 import { TiTick } from "react-icons/ti";
-import { Cross } from "lucide-react";
-import { BiCross } from "react-icons/bi";
 import { ImCross } from "react-icons/im";
 
 const ProofSection = () => {
@@ -18,9 +15,9 @@ const ProofSection = () => {
   ];
 
   return (
-    <section className="min-h-[calc(90vh)] bg-slate-800  flex items-center justify-center">
-      <div className="grid grid-cols-2 h-full w-full">
-        <div className="flex flex-col justify-center items-center h-full w-full px-auto py-12 text-zinc-200 bg-slate-800">
+    <section className="min-h-screen bg-slate-800  flex items-center justify-center">
+      <div className="grid xl:grid-cols-2 grid-cols-1 h-full w-full">
+        <div className="flex flex-col justify-center items-center h-full w-full px-auto py-12 text-zinc-200 bg-slate-800 px-5">
           <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-sans font-extrabold leading-tight">
             Make a resume <br />
             <span className="text-amber-400">built to pass</span>{" "}
@@ -61,14 +58,14 @@ const ProofSection = () => {
           </div>
 
           <NavLink
-            to="/templates"
+            to={"/auth/signup"}
             className="block bg-amber-400 text-slate-800 text-lg mt-10 px-6 py-3 rounded-xl font-semibold font-mono border border-slate-800 hover:bg-amber-500 hover:text-black hover:border-zinc-900 transition-colors duration-300"
           >
             Create your resume!
           </NavLink>
         </div>
 
-        <div className="flex flex-row gap-10 px-20 pr-24">
+        <div className="flex flex-row gap-10 justify-center items-center pb-12 px-5">
           <div className="flex justify-center items-center flex-col">
             <h1 className="text-lg md:text-xl lg:text-2xl text-center font-sans font-medium text-green-500 mb-5  decoration-green-500 flex flex-row items-center justify-center">
               <TiTick size={35} />
@@ -77,7 +74,7 @@ const ProofSection = () => {
             <img
               src={imageGoodAts}
               alt="Description"
-              className="object-contain w-[calc(450px)] rounded-lg"
+              className="object-contain w-[calc(400px)] rounded-lg"
             />
           </div>
           <div className="flex justify-center items-center flex-col">
@@ -87,7 +84,7 @@ const ProofSection = () => {
             <img
               src={imageBadAts}
               alt="Description"
-              className="object-contain w-[calc(450px)] rounded-lg"
+              className="object-contain w-[calc(400px)] rounded-lg"
             />
           </div>
         </div>

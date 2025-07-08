@@ -23,7 +23,8 @@ const SignupPage = () => {
 
           <button
             onClick={handleOAuth}
-            className="flex items-center justify-center bg-white border border-slate-400 rounded-md w-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow duration-300"
+            disabled={true}
+            className="flex items-center justify-center cursor-not-allowed bg-gray-300 border border-slate-400 rounded-md w-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow duration-300"
           >
             <svg
               className="w-6 h-6 mr-3"
