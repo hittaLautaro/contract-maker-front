@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const TemplateSmallSelector = () => {
   const navigate = useNavigate();
@@ -44,17 +44,26 @@ const TemplateSmallSelector = () => {
   }
 
   return (
-    <div className="max-w-6xl w-full mx-auto px-4 mt-5 pb-10">
-      <h2 className="text-4xl font-bold text-gray-800 my-10">
-        Choose a{" "}
-        <span className="underline decoration-amber-400">template</span>
-      </h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 pb-10">
+    <div className="max-w-7xl w-full mx-auto p-5 rounded-xl bg-white border-2 border-slate-800">
+      <div className="flex flex-row justify-between mb-2">
+        <h2 className="text-2xl font-bold text-black ">
+          Choose a{" "}
+          <span className="underline decoration-amber-400">template</span>
+        </h2>
+        <NavLink
+          to={"/templates"}
+          className=" border border-black px-3 py-2 rounded font-medium bg-amber-300"
+        >
+          View all
+        </NavLink>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 ">
         {templates.map((template) => (
           <div
             key={template.id}
             onClick={() => handleTemplateSelect(template)}
-            className="bg-white rounded-lg shadow-md hover:shadow-lg  duration-300 cursor-pointer p-3 border-2 border-gray-800 hover:scale-105 transition-transform"
+            className="bg-white rounded-lg shadow-md hover:shadow-md border border-slate-800 duration-300 cursor-pointer p-3  hover:scale-105 transition-transform min-h-64"
           >
             <p className="text-md font-bold text-gray-800 mt-1">
               {template.displayName}
