@@ -9,7 +9,7 @@ const ProjectsSection = ({
   removeProject,
 }) => {
   return (
-    <section className="bg-white border-2 border-gray-800 rounded-lg">
+    <section className="bg-white border border-gray-800 rounded-lg">
       <div className="flex justify-between px-5 py-4">
         <h2 className="text-xl font-semibold text-gray-800">Projects</h2>
         <button

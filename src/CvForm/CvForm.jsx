@@ -1,7 +1,6 @@
 import { Document, Page } from "react-pdf";
 import { pdfjs } from "react-pdf";
 
-// Configure worker
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
   import.meta.url
@@ -16,46 +15,37 @@ import ExperienceSection from "./ExperienceSection.jsx";
 import ProjectsSection from "./ProjectSection.jsx";
 import EducationSection from "./EducationSection.jsx";
 import { NavLink } from "react-router-dom";
-import {
-  RiArrowGoBackFill,
-  RiFilePdf2Fill,
-  RiFileWord2Fill,
-  RiWordpressFill,
-} from "react-icons/ri";
+import { RiArrowGoBackFill, RiFilePdf2Fill } from "react-icons/ri";
 import { useState, useEffect } from "react";
-import { FaFileWord, FaRegFileWord } from "react-icons/fa";
-import { SiSpringboot } from "react-icons/si";
+import { FaRegFileWord } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 import { ImCross } from "react-icons/im";
 
 const CvForm = ({ templateId = 1 }) => {
   const {
     formData,
     updateField,
-    // Languages
     addLanguage,
     removeLanguage,
-    // Experiences
     addExperience,
     removeExperience,
     updateExperience,
-    // Education
     addEducation,
     removeEducation,
     updateEducation,
-    // Projects
     addProject,
     removeProject,
     updateProject,
-    // Form submission
     handleSubmit,
     isLoading,
     error,
   } = useCvForm(templateId);
 
-  // Local state to hold generated PDF URL and modal open state
   const [pdfUrl, setPdfUrl] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
   const [numPages, setNumPages] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     return () => {
@@ -65,10 +55,8 @@ const CvForm = ({ templateId = 1 }) => {
     };
   }, [pdfUrl]);
 
-  // Wrap original handleSubmit to capture PDF URL and open modal
   const newHandleSubmit = async () => {
     try {
-      // Assuming your hook's generatePdf returns the blob or url:
       const blob = await handleSubmit();
       if (blob) {
         const url = URL.createObjectURL(blob);
@@ -76,12 +64,9 @@ const CvForm = ({ templateId = 1 }) => {
         setModalOpen(true);
         console.log("modal open", blob);
       }
-    } catch (e) {
-      // error handled in the hook already
-    }
+    } catch (e) {}
   };
 
-  // Clean up URL object when modal closes or component unmounts
   const closeModal = () => {
     if (pdfUrl) {
       URL.revokeObjectURL(pdfUrl);
@@ -94,9 +79,9 @@ const CvForm = ({ templateId = 1 }) => {
     <div className="max-w-6xl w-full mx-auto px-4 mt-5 pb-10">
       {/* Header */}
       <div className="flex flex-row items-center gap-4 my-10">
-        <NavLink to="/templates">
+        <button onClick={() => navigate(-1)} className="p-1">
           <RiArrowGoBackFill size={30} className="text-gray-800" />
-        </NavLink>
+        </button>
 
         <h2 className="text-4xl font-bold text-gray-800">
           Fill the{" "}
@@ -144,7 +129,7 @@ const CvForm = ({ templateId = 1 }) => {
           type="button"
           onClick={newHandleSubmit}
           disabled={isLoading}
-          className={`px-6 py-3 bg-amber-300 text-zinc-800 border-2 border-zinc-800 rounded-md hover:bg-amber-400 transition-colors font-medium ${
+          className={`px-6 py-3 bg-amber-300 text-zinc-800 border border-zinc-800 rounded-md hover:bg-amber-400 transition-colors font-medium ${
             isLoading ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -156,7 +141,7 @@ const CvForm = ({ templateId = 1 }) => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div
-            className="bg-white border-2 border-zinc-800 rounded-lg shadow-lg p-4 max-w-5xl max-h-[90vh]  overflow-auto relative"
+            className="bg-white border border-zinc-800 rounded-lg shadow-lg p-4 max-w-5xl max-h-[90vh]  overflow-auto relative"
             onClick={(e) => e.stopPropagation()}
           >
             <a
@@ -183,7 +168,7 @@ const CvForm = ({ templateId = 1 }) => {
                     scale={1.0}
                     renderAnnotationLayer={false}
                     renderTextLayer={false}
-                    className="pdf-page border-2 border-zinc-800 max-w-40"
+                    className="pdf-page border border-zinc-800 max-w-40"
                   />
                 ))}
               </Document>

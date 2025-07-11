@@ -52,7 +52,7 @@ const TemplateSelector = () => {
         <span className="underline decoration-amber-400">template</span>
       </h2>
 
-      <div className="rounded-xl border-2 border-slate-800 p-3 flex-1 overflow-hidden">
+      <div className="rounded-xl border border-slate-800 p-3 flex-1 overflow-hidden">
         <div className="overflow-y-auto h-full p-3">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {templates.map((template) => (

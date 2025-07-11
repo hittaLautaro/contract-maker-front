@@ -44,7 +44,7 @@ const TemplateSmallSelector = () => {
   }
 
   return (
-    <div className="max-w-7xl w-full mx-auto p-5 rounded-xl bg-white border-2 border-slate-800">
+    <div className="max-w-7xl w-full mx-auto p-5 rounded-xl bg-white border border-slate-800">
       <div className="flex flex-row justify-between mb-2">
         <h2 className="text-2xl font-bold text-black ">
           Choose a{" "}

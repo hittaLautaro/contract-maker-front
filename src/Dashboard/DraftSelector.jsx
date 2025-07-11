@@ -44,7 +44,7 @@ const DraftSelector = () => {
   }
 
   return (
-    <div className="max-w-7xl w-full mx-auto px-4 mt-5 pb-5 border-2 border-gray-800 rounded-xl bg-white">
+    <div className="max-w-7xl w-full mx-auto px-4 mt-5 pb-5 border border-gray-800 rounded-xl bg-white">
       <div className="flex flex-row justify-between my-5">
         <h2 className="text-2xl font-bold text-gray-800 ">
           {" "}
