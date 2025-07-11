@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { AiOutlineForm } from "react-icons/ai";
-import { RiDraftFill } from "react-icons/ri";
 import { SiReaddotcv } from "react-icons/si";
 import { MdAccountCircle, MdSpaceDashboard } from "react-icons/md";
 import { LogOutIcon } from "lucide-react";
@@ -19,7 +18,7 @@ const Sidebar = () => {
       <div className="flex space-x-8 items-center mb-8">
         <NavLink
           to={"/"}
-          className="flex flex-row items-center hover:bg-slate-200 p-2 rounded gap-2 text-md"
+          className="flex flex-row items-center  p-2 rounded gap-2 text-md"
         >
           <h1 className="text-4xl text-zinc-800 font-bold font-sans rounded transition-colors duration-300 underline decoration-white hover:decoration-amber-400">
             PerfCV
@@ -30,35 +29,35 @@ const Sidebar = () => {
       <ul className="space-y-2">
         <NavLink
           to={"/"}
-          className="flex flex-row items-center hover:bg-slate-200 p-2 rounded gap-2 text-md"
+          className="flex flex-row items-center hover:bg-amber-100 p-2 rounded gap-2 text-md"
         >
           <MdSpaceDashboard size={20} />
           <li className="">Dashboard</li>
         </NavLink>
         <NavLink
           to={"/templates"}
-          className="flex flex-row items-center hover:bg-slate-200 p-2 rounded gap-2 text-md"
+          className="flex flex-row items-center hover:bg-amber-100 p-2 rounded gap-2 text-md"
         >
           <SiReaddotcv size={20} />
           <li className="">Templates</li>
         </NavLink>
         <NavLink
           to="/resumes"
-          className="flex flex-row items-center hover:bg-slate-200 p-2 rounded gap-2 text-md"
+          className="flex flex-row items-center hover:bg-amber-100 p-2 rounded gap-2 text-md"
         >
           <AiOutlineForm size={20} />
           <li className="">Resumes</li>
         </NavLink>
         <NavLink
           to={"/form"}
-          className="flex flex-row items-center hover:bg-slate-200 p-2 rounded gap-2 text-md"
+          className="flex flex-row items-center hover:bg-amber-100 p-2 rounded gap-2 text-md"
         >
           <FaWpforms size={20} />
           <li className="">Autofill Form</li>
         </NavLink>
         <NavLink
           to={"/account"}
-          className="flex flex-row items-center hover:bg-slate-200 p-2 rounded gap-2 text-md"
+          className="flex flex-row items-center hover:bg-amber-100 p-2 rounded gap-2 text-md"
         >
           <MdAccountCircle size={20} />
           <li className=" ">Account</li>

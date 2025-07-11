@@ -5,51 +5,43 @@ const DraftSelector = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
 
-  //   const {
-  //     data: templates = [],
-  //     isLoading,
-  //     error,
-  //   } = useQuery({
-  //     queryKey: ["templates"],
-  //     queryFn: () =>
-  //       fetch("http://localhost:8080/api/templates", {
-  //         method: "GET",
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //           "Content-Type": "application/json",
-  //         },
-  //       }).then((res) => res.json()),
-  //   });
+  const {
+    data: templates = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["templates"],
+    queryFn: () =>
+      fetch("http://localhost:8080/api/templates", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }).then((res) => res.json()),
+  });
 
-  const templates = [
-    { id: 1, displayName: "draft 01" },
-    { id: 1, displayName: "draft 01" },
-    { id: 1, displayName: "draft 01" },
-    { id: 1, displayName: "draft 01" },
-    { id: 1, displayName: "draft 01" },
-  ];
+  const handleTemplateSelect = (template) => {
+    navigate(`/templates/${template.id}/fill?template=${template.displayName}`);
+  };
 
-  //   const handleTemplateSelect = (template) => {
-  //     navigate(`/templates/${template.id}/fill?template=${template.displayName}`);
-  //   };
+  if (isLoading) {
+    return (
+      <div className="min-h-screen  flex items-center justify-center">
+        <div className="text-xl text-gray-600">Loading templates...</div>
+      </div>
+    );
+  }
 
-  //   if (isLoading) {
-  //     return (
-  //       <div className="min-h-screen  flex items-center justify-center">
-  //         <div className="text-xl text-gray-600">Loading templates...</div>
-  //       </div>
-  //     );
-  //   }
-
-  //   if (error) {
-  //     return (
-  //       <div className="min-h-screen  flex items-center justify-center">
-  //         <div className="text-xl text-red-600">
-  //           Error loading templates. Please try again.
-  //         </div>
-  //       </div>
-  //     );
-  //   }
+  if (error) {
+    return (
+      <div className="min-h-screen  flex items-center justify-center">
+        <div className="text-xl text-red-600">
+          Error loading templates. Please try again.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl w-full mx-auto px-4 mt-5 pb-5 border-2 border-gray-800 rounded-xl bg-white">
