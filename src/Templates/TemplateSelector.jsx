@@ -46,13 +46,13 @@ const TemplateSelector = () => {
   }
 
   return (
-    <div className="max-w-6xl w-full mx-auto bg-white rounded-xl flex flex-col">
+    <div className="max-w-6xl w-full mx-auto bg-white rounded-xl flex flex-col ">
       <h2 className="text-4xl font-bold text-gray-800 mb-5">
         Choose a{" "}
         <span className="underline decoration-amber-400">template</span>
       </h2>
 
-      <div className="rounded-xl border border-slate-800 p-3 flex-1 overflow-hidden">
+      <div className="rounded-xl border border-slate-800 p-3 flex-1 overflow-hidden shadow-lg shadow-gray-300">
         <div className="overflow-y-auto h-full p-3">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {templates.map((template) => (

@@ -1,51 +1,54 @@
 import { useQuery } from "@tanstack/react-query";
+import { FaListCheck } from "react-icons/fa6";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const DraftSelector = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
 
-  const {
-    data: templates = [],
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["templates"],
-    queryFn: () =>
-      fetch("http://localhost:8080/api/templates", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      }).then((res) => res.json()),
-  });
+  const templates = [];
+
+  // const {
+  //   data: templates = [],
+  //   isLoading,
+  //   error,
+  // } = useQuery({
+  //   queryKey: ["templates"],
+  //   queryFn: () =>
+  //     fetch("http://localhost:8080/api/templates", {
+  //       method: "GET",
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //         "Content-Type": "application/json",
+  //       },
+  //     }).then((res) => res.json()),
+  // });
 
   const handleTemplateSelect = (template) => {
     navigate(`/templates/${template.id}/fill?template=${template.displayName}`);
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen  flex items-center justify-center">
-        <div className="text-xl text-gray-600">Loading templates...</div>
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="min-h-screen  flex items-center justify-center">
+  //       <div className="text-xl text-gray-600">Loading templates...</div>
+  //     </div>
+  //   );
+  // }
 
-  if (error) {
-    return (
-      <div className="min-h-screen  flex items-center justify-center">
-        <div className="text-xl text-red-600">
-          Error loading templates. Please try again.
-        </div>
-      </div>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <div className="min-h-screen  flex items-center justify-center">
+  //       <div className="text-xl text-red-600">
+  //         Error loading templates. Please try again.
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <div className="max-w-7xl w-full mx-auto px-4 mt-5 pb-5 border border-gray-800 rounded-xl bg-white">
-      <div className="flex flex-row justify-between my-5">
+    <div className="max-w-7xl w-full mx-auto p-5 border border-gray-800 rounded-xl shadow-lg shadow-gray-300 bg-white">
+      <div className="flex flex-row justify-between mb-2">
         <h2 className="text-2xl font-bold text-gray-800 ">
           {" "}
           Saved <span className="underline decoration-amber-400">resumes</span>
@@ -73,9 +76,9 @@ const DraftSelector = () => {
       </div>
 
       {templates.length === 0 && (
-        <div className="text-center py-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            No Resumes Available
+        <div className="text-center py-20">
+          <h2 className="text-xl font-medium text-gray-800 mb-4">
+            No saved resumes.
           </h2>
         </div>
       )}

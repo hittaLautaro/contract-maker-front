@@ -44,7 +44,7 @@ const TemplateSmallSelector = () => {
   }
 
   return (
-    <div className="max-w-7xl w-full mx-auto p-5 rounded-xl bg-white border border-slate-800">
+    <div className="max-w-7xl w-full mx-auto p-5 rounded-xl bg-white border border-slate-800 shadow-lg shadow-gray-300">
       <div className="flex flex-row justify-between mb-2">
         <h2 className="text-2xl font-bold text-black ">
           Choose a{" "}
@@ -73,9 +73,9 @@ const TemplateSmallSelector = () => {
       </div>
 
       {templates.length === 0 && (
-        <div className="text-center py-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            No Templates Available
+        <div className="text-center py-20">
+          <h2 className="text-xl font-medium text-gray-800 mb-4">
+            No templates avaiilable.
           </h2>
         </div>
       )}

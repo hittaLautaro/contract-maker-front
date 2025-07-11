@@ -9,7 +9,7 @@ const EducationSection = ({
   removeEducation,
 }) => {
   return (
-    <section className="bg-white border border-gray-800 rounded-lg">
+    <section className="bg-white border border-gray-800 rounded-lg shadow-lg shadow-gray-300">
       <div className="flex justify-between px-5 py-4">
         <h2 className="text-xl font-semibold text-gray-800">Education</h2>
         <button

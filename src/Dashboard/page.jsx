@@ -7,9 +7,9 @@ const Dashboard = () => {
     <div className="min-h-screen flex flex-col">
       <div className="flex flex-row flex-1 ">
         <Sidebar />
-        <main className="flex-1 p-4 bg-white flex justify-center items-center flex-col">
+        <main className="flex-1 p-4 bg-white flex justify-center items-center flex-col gap-5">
+          <DraftSelector className="shadow-xl" />
           <TemplateSmallSelector />
-          <DraftSelector />
         </main>
       </div>
     </div>

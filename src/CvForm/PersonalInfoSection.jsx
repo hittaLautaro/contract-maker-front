@@ -8,7 +8,7 @@ const PersonalInfoSection = ({
   removeLanguage,
 }) => {
   return (
-    <section className="bg-white px-5 py-4 border border-gray-800 rounded-xl">
+    <section className="bg-white px-5 py-4 border border-gray-800 rounded-xl shadow-lg shadow-gray-300">
       <h2 className="text-xl font-semibold mb-4 text-gray-800">About Me</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
