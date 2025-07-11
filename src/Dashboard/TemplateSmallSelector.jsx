@@ -44,9 +44,9 @@ const TemplateSmallSelector = () => {
   }
 
   return (
-    <div className="max-w-7xl w-full mx-auto p-5 rounded-xl bg-white border border-slate-800 shadow-lg shadow-gray-300">
+    <div className="max-w-7xl w-full mx-auto p-5 rounded-xl bg-white border border-gray-800 shadow-lg shadow-gray-300">
       <div className="flex flex-row justify-between mb-2">
-        <h2 className="text-2xl font-bold text-black ">
+        <h2 className="text-2xl font-bold text-gray-800 ">
           Choose a{" "}
           <span className="underline decoration-amber-400">template</span>
         </h2>
