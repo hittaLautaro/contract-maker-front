@@ -25,24 +25,6 @@ const TemplateSmallSelector = () => {
     navigate(`/templates/${template.id}/fill?template=${template.displayName}`);
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen  flex items-center justify-center">
-        <div className="text-xl text-gray-600">Loading templates...</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen  flex items-center justify-center">
-        <div className="text-xl text-red-600">
-          Error loading templates. Please try again.
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="max-w-7xl w-full mx-auto p-5 rounded-xl bg-white border border-gray-800 shadow-lg shadow-gray-300">
       <div className="flex flex-row justify-between mb-2">
@@ -72,10 +54,25 @@ const TemplateSmallSelector = () => {
         ))}
       </div>
 
-      {templates.length === 0 && (
+      {isLoading && (
+        <div className="text-center py-20">
+          <h2 className="text-xl font-medium text-gray-800 mb-4">Loading...</h2>
+        </div>
+      )}
+
+      {!isLoading && !error && templates.length === 0 && (
         <div className="text-center py-20">
           <h2 className="text-xl font-medium text-gray-800 mb-4">
-            No templates avaiilable.
+            No templates available.
+          </h2>
+        </div>
+      )}
+
+      {error && (
+        <div className="text-center py-20">
+          <h2 className="text-xl font-medium text-red-800 mb-4">
+            {" "}
+            Error loading templates
           </h2>
         </div>
       )}
