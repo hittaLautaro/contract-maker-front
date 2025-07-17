@@ -19,11 +19,15 @@ export const useCvForm = (templateId = 1) => {
   });
 
   const [pdfUrl, setPdfUrl] = useState(null);
+  const token = localStorage.getItem("accessToken");
 
   const generatePdf = async (formData) => {
-    const res = await fetch("http://localhost:8080/api/cv/generate-pdf", {
+    const res = await fetch("http://localhost:8080/api/resumes/generate-pdf", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(formData),
     });
 
