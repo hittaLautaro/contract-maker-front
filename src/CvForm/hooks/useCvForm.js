@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 
-export const useCvForm = (templateId = 1) => {
+export const useCvForm = (templateId) => {
   const [formData, setFormData] = useState({
     selectedTemplateId: templateId,
     fullName: "",

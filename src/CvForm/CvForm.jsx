@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 
 import { ImCross } from "react-icons/im";
 
-const CvForm = ({ templateId = 1 }) => {
+const CvForm = ({ templateId }) => {
   const {
     formData,
     updateField,

@@ -11,6 +11,7 @@ import HomeRoute from "./global/components/HomeRoute.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import ResumesPage from "./Resumes/ResumesPage.jsx";
 import EditResumePage from "./Resumes/EditResumePage.jsx";
+import EditFormPage from "./CvForm/EditFormPage.jsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,11 +53,21 @@ function App() {
                 </PrivateRoute>
               }
             />
+
             <Route
               path="/resumes/:id/edit"
               element={
                 <PrivateRoute>
                   <EditResumePage />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/form"
+              element={
+                <PrivateRoute>
+                  <EditFormPage />
                 </PrivateRoute>
               }
             />
