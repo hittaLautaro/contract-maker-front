@@ -4,24 +4,17 @@ import { useNavigate } from "react-router-dom";
 const TemplateSelector = () => {
   const navigate = useNavigate();
 
-  // const {
-  //   data: templates = [],
-  //   isLoading,
-  //   error,
-  // } = useQuery({
-  //   queryKey: ["templates"],
-  //   queryFn: () =>
-  //     fetch("http://localhost:8080/api/templates", { method: "GET" }).then(
-  //       (res) => res.json()
-  //     ),
-  // });
-
-  const templates = [
-    { id: 1, displayName: "Template 1" },
-    { id: 2, displayName: "Template 2" },
-  ];
-  const isLoading = false;
-  const error = null;
+  const {
+    data: templates = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["templates"],
+    queryFn: () =>
+      fetch("http://localhost:8080/api/templates", { method: "GET" }).then(
+        (res) => res.json()
+      ),
+  });
 
   const handleTemplateSelect = (template) => {
     navigate(`/templates/${template.id}/fill?template=${template.displayName}`);
@@ -46,7 +39,7 @@ const TemplateSelector = () => {
   }
 
   return (
-    <div className="max-w-6xl w-full mx-auto bg-white rounded-xl flex flex-col ">
+    <div className="max-w-6xl w-full mx-auto bg-white rounded-xl flex flex-col min-h-[23rem] px-5">
       <h2 className="text-4xl font-bold text-gray-800 mb-5">
         Choose a{" "}
         <span className="underline decoration-amber-400">template</span>
@@ -54,7 +47,7 @@ const TemplateSelector = () => {
 
       <div className="rounded-xl border border-slate-800 p-3 flex-1 overflow-hidden shadow-lg shadow-gray-300">
         <div className="overflow-y-auto h-full p-3">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {templates.map((template) => (
               <div
                 key={template.id}
